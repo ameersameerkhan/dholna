@@ -2,7 +2,7 @@
 
 *A train window, a changing sky, and a handful of songs for disappearing into your own thoughts for a while.*
 
-**[View Dholna ↗](https://ameersameerkhan.github.io/dholna/)**
+**[View Dholna ↗](https://newpardesi.com/)**
 
 <img src="./public/scenes/day.jpg" alt="Dholna in its daytime scene, looking through a train window" width="100%" />
 
@@ -86,7 +86,7 @@ The maker signature lives in `src/chrome/AttributionLink.tsx`.
 
 The included GitHub Pages workflow builds and deploys `main` automatically.
 
-If your repository is not named `dholna`, update the production `base` path in `vite.config.ts` before deploying. Then enable GitHub Pages with **GitHub Actions** as the source in your repository settings.
+Production assets use a relative Vite base, so the same build works from a custom domain or a repository subpath. Enable GitHub Pages with **GitHub Actions** as the source in your repository settings.
 
 ## Useful commands
 
