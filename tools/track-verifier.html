@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dholna Track Verifier</title>
+  </head>
+  <body>
+    <button id="play" type="button">Play</button>
+    <div id="player"></div>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const videoId = params.get("videoId") || "";
+
+      window.__dholnaTrackEvents = [];
+      const record = (kind, detail = null) => {
+        window.__dholnaTrackEvents.push({
+          at: Math.round(performance.now()),
+          kind,
+          detail,
+        });
+      };
+
+      window.__dholnaTrackResult = {
+        ready: false,
+        state: -1,
+        error: null,
+      };
+
+      record("page", {
+        href: window.location.href,
+        origin: window.location.origin,
+        videoId,
+        videoIdLength: videoId.length,
+      });
+
+      window.onYouTubeIframeAPIReady = () => {
+        record("api-ready");
+        window.__dholnaTrackPlayer = new YT.Player("player", {
+          width: "200",
+          height: "200",
+          playerVars: {
+            enablejsapi: 1,
+            playsinline: 1,
+            origin: window.location.origin,
+          },
+          events: {
+            onReady(event) {
+              record("player-ready", {
+                iframeSrc: event.target.getIframe?.().src ?? null,
+              });
+              record("command:cueVideoById", { videoId, startSeconds: 0 });
+              event.target.cueVideoById(videoId, 0);
+              window.__dholnaTrackResult.ready = true;
+            },
+            onStateChange(event) {
+              window.__dholnaTrackResult.state = event.data;
+              record("state", event.data);
+            },
+            onError(event) {
+              window.__dholnaTrackResult.error = event.data;
+              record("error", event.data);
+            },
+          },
+        });
+      };
+
+      document.getElementById("play").addEventListener("click", () => {
+        record("command:playVideo");
+        window.__dholnaTrackPlayer?.playVideo();
+      });
+
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(script);
+    </script>
+  </body>
+</html>

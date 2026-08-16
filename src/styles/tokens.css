@@ -1,0 +1,36 @@
+:root {
+  color-scheme: dark;
+  --font-ui: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --glass-blur: 24px;
+  --glass-fill: 255 255 255;
+  --glass-border: 255 255 255;
+  --glass-highlight: 255 255 255;
+  --glass-shadow: 0 0 0;
+  --scene-accent: 244 186 80;
+  --scene-glow: 244 186 80;
+  --text-primary: 255 255 255;
+  --text-secondary: 255 255 255;
+}
+
+[data-mode="day"] {
+  --glass-fill: 255 245 226;
+  --glass-border: 255 255 255;
+  --glass-highlight: 255 255 255;
+  --glass-shadow: 48 29 15;
+  --scene-accent: 244 186 80;
+  --scene-glow: 244 186 80;
+  --text-primary: 255 255 255;
+  --text-secondary: 255 248 237;
+}
+
+[data-mode="night"] {
+  --glass-fill: 20 28 52;
+  --glass-border: 205 218 255;
+  --glass-highlight: 235 241 255;
+  --glass-shadow: 2 6 18;
+  --scene-accent: 154 178 255;
+  --scene-glow: 154 178 255;
+  --text-primary: 255 255 255;
+  --text-secondary: 226 233 255;
+}

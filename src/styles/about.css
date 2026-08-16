@@ -1,0 +1,278 @@
+.app-experience {
+  position: absolute;
+  inset: 0;
+}
+
+.about-journey-trigger {
+  grid-area: attribution;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: auto;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: rgb(var(--text-primary) / 0.72);
+  text-shadow: 0 1px 18px rgb(0 0 0 / 0.42);
+  cursor: pointer;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.about-journey-trigger:hover {
+  color: rgb(var(--text-primary));
+}
+
+.about-journey-trigger:focus-visible {
+  outline: 2px solid rgb(var(--text-primary) / 0.88);
+  outline-offset: 3px;
+}
+
+.about-journey-trigger__mobile {
+  display: none;
+}
+
+.about-journey-backdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding:
+    max(24px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+  background: rgb(5 7 10 / 0.34);
+  backdrop-filter: blur(42px) saturate(86%);
+  -webkit-backdrop-filter: blur(42px) saturate(86%);
+  animation: about-backdrop-in 180ms ease both;
+}
+
+.about-journey-modal {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: min(720px, calc(100dvh - 48px));
+  overflow: auto;
+  padding: 40px 42px 34px;
+  border: 1px solid rgb(255 255 255 / 0.20);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 14% 0, rgb(255 255 255 / 0.12), transparent 34%),
+    linear-gradient(145deg, rgb(25 29 34 / 0.76), rgb(13 15 18 / 0.62));
+  box-shadow:
+    inset 0 1px rgb(255 255 255 / 0.18),
+    0 28px 90px rgb(0 0 0 / 0.42);
+  backdrop-filter: blur(28px) saturate(125%);
+  -webkit-backdrop-filter: blur(28px) saturate(125%);
+  animation: about-modal-in 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-journey-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(var(--text-primary) / 0.70);
+  font-family: var(--font-ui);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.about-journey-modal__close:hover {
+  color: rgb(var(--text-primary));
+  background: rgb(255 255 255 / 0.08);
+}
+
+.about-journey-modal__close:focus-visible,
+.about-journey-modal .attribution-link:focus-visible,
+.about-journey-modal__github:focus-visible {
+  outline: 2px solid rgb(var(--text-primary) / 0.88);
+  outline-offset: 3px;
+}
+
+.about-journey-modal__content h2 {
+  margin: 0 44px 22px 0;
+  font-family: var(--font-ui);
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: rgb(var(--text-primary) / 0.98);
+}
+
+.about-journey-modal__content p {
+  margin: 0 0 14px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: rgb(var(--text-primary) / 0.78);
+}
+
+.about-journey-modal__content p:first-of-type {
+  color: rgb(var(--text-primary) / 0.94);
+}
+
+.about-journey-modal__content p:last-child {
+  margin-bottom: 0;
+}
+
+.about-journey-modal__colophon {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.about-journey-modal .attribution-link,
+.about-journey-modal__github {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 400;
+  text-decoration: none;
+  text-shadow: none;
+  transition: color 180ms ease;
+}
+
+.about-journey-modal .attribution-link {
+  grid-area: auto;
+  justify-self: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  color: rgb(var(--text-primary) / 0.66);
+}
+
+.about-journey-modal .attribution-link__prefix {
+  display: inline;
+}
+
+.about-journey-modal__github {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  color: rgb(var(--text-primary) / 0.44);
+}
+
+.about-journey-modal .attribution-link:hover {
+  color: rgb(var(--text-primary));
+}
+
+.about-journey-modal__github:hover {
+  color: rgb(var(--text-primary) / 0.78);
+}
+
+@keyframes about-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes about-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .about-journey-trigger {
+    justify-self: end;
+    min-height: 28px;
+    gap: 2px;
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .about-journey-trigger__desktop {
+    display: none;
+  }
+
+  .about-journey-trigger__mobile {
+    display: inline;
+  }
+
+  .about-journey-backdrop {
+    padding:
+      max(16px, env(safe-area-inset-top))
+      max(16px, env(safe-area-inset-right))
+      max(16px, env(safe-area-inset-bottom))
+      max(16px, env(safe-area-inset-left));
+    background: rgb(5 7 10 / 0.34);
+    backdrop-filter: blur(26px) saturate(86%);
+    -webkit-backdrop-filter: blur(26px) saturate(86%);
+  }
+
+  .about-journey-modal {
+    width: 100%;
+    max-height: calc(100dvh - 32px);
+    padding: 36px 24px 28px;
+    border-radius: 20px;
+  }
+
+  .about-journey-modal__content h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .about-journey-modal__content p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 350px) and (orientation: portrait) {
+  .about-journey-trigger {
+    gap: 1px;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .about-journey-trigger {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-journey-backdrop,
+  .about-journey-modal {
+    animation: none;
+  }
+
+  .about-journey-trigger,
+  .about-journey-modal__close,
+  .about-journey-modal .attribution-link,
+  .about-journey-modal__github {
+    transition-duration: 120ms;
+  }
+}

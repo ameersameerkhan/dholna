@@ -1,0 +1,8 @@
+* { box-sizing: border-box; }
+html, body, #root { width: 100%; min-width: 100%; height: 100%; margin: 0; }
+body { overflow: hidden; font-family: var(--font-ui); -webkit-font-smoothing: antialiased; background: #0b1020; color: var(--text-primary); }
+button, input, a { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid rgba(255,255,255,.9); outline-offset: 3px; }
+.app-shell { position: relative; width: 100%; min-height: 100dvh; overflow: hidden; }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Dholna Track Curator</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #111; color: #f5f2ea; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #111; color: #f5f2ea; }
+      main { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 64px; }
+      h1 { margin: 0 0 8px; font-size: 28px; }
+      p { max-width: 720px; color: #bdb8ad; line-height: 1.55; }
+      .notice { margin: 20px 0; padding: 12px 14px; border: 1px solid #3a3732; background: #181715; }
+      .summary { display: flex; flex-wrap: wrap; gap: 18px; margin: 20px 0; color: #bdb8ad; }
+      .summary strong { color: #f5f2ea; }
+      .table-wrap { overflow-x: auto; margin-top: 24px; }
+      table { width: 100%; border-collapse: collapse; min-width: 620px; }
+      th, td { padding: 10px 8px; border-bottom: 1px solid #2f2c28; text-align: left; font-size: 13px; }
+      th { color: #a9a398; font-weight: 500; }
+      code { color: #ded8cb; }
+      a { color: #ded8cb; text-decoration: none; }
+      a:hover { color: #fff; text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Dholna Track Curator</h1>
+      <p>A small maintainer index for the active and reserve YouTube video IDs.</p>
+      <div class="notice">Not part of the production Dholna experience. Run it through the Vite dev server and open any track in the verifier.</div>
+      <div class="summary" aria-live="polite">
+        <span>Active <strong id="active-count">0</strong></span>
+        <span>Reserve <strong id="reserve-count">0</strong></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Set</th><th>Mode</th><th>Video ID</th><th>Verifier</th></tr></thead>
+          <tbody id="tracks"></tbody>
+        </table>
+      </div>
+    </main>
+    <script type="module" src="./track-curator.js"></script>
+  </body>
+</html>
